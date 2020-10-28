@@ -11,7 +11,7 @@
   "description": "JWang customized template with Mobx State Tree for Create React App.",
   "repository": {
     "type": "git",
-    "url": "",
+    "url": "https://github.com/sherlockwang/cra-template-jw-mst",
     "directory": "."
   },
   "license": "MIT",
