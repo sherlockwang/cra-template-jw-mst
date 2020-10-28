@@ -1,0 +1,25 @@
+{
+  "presets": [
+    [
+      "@babel/preset-env",
+      {
+        "targets": {
+          "node": "current",
+        }
+      }
+    ]
+  ],
+  "plugins": [
+    [
+      "babel-plugin-named-asset-import",
+      {
+        "loaderMap": {
+          "svg": {
+            "ReactComponent": "@svgr/webpack?-svgo,+titleProp,+ref![path]",
+          }
+        }
+      }
+    ],
+    ["jsx-control-statements"]
+  ]
+}
