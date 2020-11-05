@@ -1,20 +1,20 @@
 import React from 'react'
-import { Router, Switch, Route } from 'react-router-dom'
+import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import { observer } from 'mobx-react'
-import { history } from '~/models'
-import Example from './example-page'
+import TodoPage from './todo'
+import ErrorBoundary from '~/components/ErrorBoundary'
 
-function MainRouter() {
+const MainRouter: React.FC<{}> = () => {
   return (
-    <Router history={history}>
-      <div className="app">
-        <Switch>
-          <Route path="/" exact>
-            <Example />
-          </Route>
-        </Switch>
-      </div>
-    </Router>
+    <BrowserRouter>
+      <ErrorBoundary>
+        <div className="app">
+          <Switch>
+            <Route path="/" exact component={TodoPage} />
+          </Switch>
+        </div>
+      </ErrorBoundary>
+    </BrowserRouter>
   )
 }
 

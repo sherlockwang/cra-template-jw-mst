@@ -1,0 +1,57 @@
+import { SnapshotIn } from 'mobx-state-tree'
+import { Todo, TodoModel } from './Todo'
+import { TodoItem } from './TodoItem'
+
+const initSnapshot: SnapshotIn<TodoModel> = {
+  todoList: [
+    {
+      name: 'test1',
+      status: false,
+      time: 30,
+    },
+    {
+      name: 'test2',
+      status: true,
+      time: 60,
+    },
+  ],
+  filter: 'all',
+  allStatus: false,
+}
+
+it('case: expect Todo Model create correctly', () => {
+  const model = Todo.create(initSnapshot)
+
+  expect(model.todoList[0].name).toEqual('test1')
+  expect(model.totalItem).toEqual(2)
+  expect(model.activeItem).toEqual(1)
+  expect(model.totalTime).toEqual(90)
+})
+
+it('case: expect Todo Model toggle all correctly', () => {
+  const model = Todo.create(initSnapshot)
+
+  model.toggleAll()
+
+  expect(model.todoList[0].status).toEqual(model.allStatus)
+})
+
+it('case: expect Todo Model add item correctly', () => {
+  const model = Todo.create(initSnapshot)
+  model.addTodo(
+    TodoItem.create({
+      name: 'test3',
+      status: false,
+      time: 20,
+    })
+  )
+
+  expect(model.totalItem).toEqual(3)
+})
+
+it('case: expect Todo Model remove item correctly', () => {
+  const model = Todo.create(initSnapshot)
+  model.removeTodo(model.todoList[0])
+
+  expect(model.totalItem).toEqual(1)
+})
