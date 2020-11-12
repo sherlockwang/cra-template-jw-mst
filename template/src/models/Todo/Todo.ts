@@ -1,19 +1,22 @@
-import { types, Instance, destroy, getSnapshot, flow } from 'mobx-state-tree'
+import { types, Instance, destroy, flow } from 'mobx-state-tree'
 import { TodoItem, TodoItemModel } from './TodoItem'
 import { get } from '~/utils/api'
 
 export const Todo = types
-  .model('Todo', {
+  .model('Todo')
+  .props({
     todoList: types.optional(types.array(TodoItem), []),
-    filter: types.maybe(
+    filter: types.optional(
       types.union(
         types.literal('all'),
         types.literal('active'),
         types.literal('completed')
-      )
+      ),
+      'all'
     ),
     allStatus: false,
-    newTodo: TodoItem,
+    newTodoName: '',
+    newTodoTime: 30,
   })
   .views(self => ({
     get totalItem() {
@@ -44,10 +47,13 @@ export const Todo = types
       self.todoList = res.data
     }),
     addTodo() {
-      const newTodoData = getSnapshot<TodoItemModel>(self.newTodo)
-      if (!self.todoList.find(item => item.name === newTodoData.name)) {
-        self.todoList.push({ ...newTodoData })
-        self.newTodo.reset()
+      if (!self.todoList.find(item => item.name === self.newTodoName)) {
+        self.todoList.push({
+          name: self.newTodoName,
+          time: self.newTodoTime,
+          status: false,
+        })
+        this.resetNewTodo()
       } else {
         alert('already existed')
       }
@@ -60,6 +66,10 @@ export const Todo = types
     },
     removeTodo(item: TodoItemModel) {
       destroy(item)
+    },
+    resetNewTodo() {
+      self.newTodoName = ''
+      self.newTodoTime = 30
     },
   }))
 

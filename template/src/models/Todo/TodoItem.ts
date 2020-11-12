@@ -1,8 +1,9 @@
-import { types, Instance, getParent, cast } from 'mobx-state-tree'
+import { types, Instance, getParent, cast, getPath, getRoot } from 'mobx-state-tree'
 import { TodoModel } from './Todo'
 
 export const TodoItem = types
-  .model('TodoItem', {
+  .model('TodoItem')
+  .props({
     status: false,
     name: '',
     time: 30,
@@ -19,12 +20,7 @@ export const TodoItem = types
     },
     remove() {
       getParent<TodoModel>(self, 2).removeTodo(cast(self))
-    },
-    reset() {
-      self.status = false
-      self.name = ''
-      self.time = 30
-    },
+    }
   }))
 
 export type TodoItemModel = Instance<typeof TodoItem>

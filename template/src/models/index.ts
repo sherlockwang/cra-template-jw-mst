@@ -1,23 +1,21 @@
-import { types, Instance, unprotect, onSnapshot, SnapshotIn } from '~/models/Todo/ExampleModelGroup/node_modules/mobx-state-tree'
-import { Todo, TodoItem } from './Todo'
+import {
+  types,
+  Instance,
+  unprotect,
+  onSnapshot,
+  SnapshotIn,
+} from 'mobx-state-tree'
+import { Todo } from './Todo'
 import { TodoModel } from './Todo/Todo'
 
-const initTodo: SnapshotIn<TodoModel> = {
-  newTodo: TodoItem.create({
-    name: '',
-    time: 30,
-    status: false,
-  }),
-  filter: 'all',
-  allStatus: false
-}
+const initTodo: SnapshotIn<TodoModel> = {}
 
 // Root Store
 export const RootStore = types.model('RootStore', {
   Todo: types.optional(Todo, initTodo),
 })
 
-export type rootStoreModel = Instance<typeof RootStore>
+export type RootStoreModel = Instance<typeof RootStore>
 
 // init store variable
 let initStore = {}
@@ -37,4 +35,3 @@ onSnapshot(store, snapshot => {
 })
 
 export { store }
-

@@ -19,16 +19,16 @@ axios.interceptors.request.use(
   }
 )
 
-const get = (url, params) =>
+const get = (url: string, params: object) =>
   axios.get(url, {
     params,
   })
 
-const post = (url, params) => axios.post(url, params)
+const post = (url: string, params: object) => axios.post(url, params)
 
-const put = (url, params) => axios.put(url, params)
+const put = (url: string, params: object) => axios.put(url, params)
 
-const del = (url, params) =>
+const del = (url: string, params: object) =>
   axios.delete(url, {
     params,
   })

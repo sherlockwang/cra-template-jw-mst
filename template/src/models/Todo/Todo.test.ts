@@ -1,6 +1,5 @@
 import { SnapshotIn } from 'mobx-state-tree'
 import { Todo, TodoModel } from './Todo'
-import { TodoItem } from './TodoItem'
 
 const initSnapshot: SnapshotIn<TodoModel> = {
   todoList: [
@@ -38,13 +37,9 @@ it('case: expect Todo Model toggle all correctly', () => {
 
 it('case: expect Todo Model add item correctly', () => {
   const model = Todo.create(initSnapshot)
-  model.addTodo(
-    TodoItem.create({
-      name: 'test3',
-      status: false,
-      time: 20,
-    })
-  )
+  model.newTodoTime = 45
+  model.newTodoName = '3333'
+  model.addTodo()
 
   expect(model.totalItem).toEqual(3)
 })

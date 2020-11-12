@@ -14,11 +14,11 @@ const TodoHeader: React.FC<{}> = () => {
   }, [])
 
   const onNameChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
-    model.newTodo.name = e.target.value
+    model.newTodoName = e.target.value
   }, [])
 
   const onTimeChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
-    model.newTodo.time = +e.target.value
+    model.newTodoTime = +e.target.value
   }, [])
 
   return (
@@ -28,14 +28,14 @@ const TodoHeader: React.FC<{}> = () => {
         <input
           className="new-todo"
           placeholder="how long?"
-          value={model.newTodo.time}
+          value={model.newTodoTime}
           onChange={onTimeChange}
           style={{ width: '120px' }}
         />
         <input
           className="new-todo"
           placeholder="What needs to be done?"
-          value={model.newTodo.name}
+          value={model.newTodoName}
           onChange={onNameChange}
           onKeyDown={handleNewTodoKeyDown}
         />
