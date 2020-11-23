@@ -1,4 +1,3 @@
-import React from 'react'
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import { observer } from 'mobx-react'
 import TodoPage from './todo'

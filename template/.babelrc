@@ -1,15 +1,19 @@
 {
   "presets": [
     [
-      "@babel/preset-env",
+      "@babel/preset-react",
       {
-        "targets": {
-          "node": "current",
-        }
+        "runtime": "automatic"
       }
     ]
   ],
   "plugins": [
+    [
+      "@babel/plugin-proposal-decorators",
+      {
+        "legacy": true
+      }
+    ],
     [
       "babel-plugin-named-asset-import",
       {
@@ -20,6 +24,8 @@
         }
       }
     ],
-    ["jsx-control-statements"]
+    [
+      "jsx-control-statements"
+    ]
   ]
 }

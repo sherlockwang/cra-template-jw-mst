@@ -43,9 +43,9 @@
     }
   },
   "rules": {
-    "jsx-a11y/href-no-hash": [
-      0
-    ],
+    "react/jsx-uses-react": "off",
+    "react/react-in-jsx-scope": "off",
+    "jsx-a11y/href-no-hash": "off",
     "react/jsx-filename-extension": [
       1,
       {
@@ -53,26 +53,6 @@
           ".jsx",
           ".tsx"
         ]
-      }
-    ],
-    "max-len": [
-      1,
-      {
-        "code": 80,
-        "tabWidth": 2,
-        "comments": 80,
-        "ignoreComments": false,
-        "ignoreTrailingComments": true,
-        "ignoreUrls": true,
-        "ignoreStrings": true,
-        "ignoreTemplateLiterals": true,
-        "ignoreRegExpLiterals": true
-      }
-    ],
-    "react/jsx-no-undef": [
-      2,
-      {
-        "allowGlobals": true
       }
     ],
     "id-length": [
