@@ -1,30 +1,30 @@
 import { Component, ReactNode } from 'react'
 
-interface Props {
+interface IProps {
   children: ReactNode
   message?: string
 }
 
-interface State {
+interface IState {
   hasError: boolean
   error?: object | null
 }
 
-class ErrorBoundary extends Component<Props, State> {
+class ErrorBoundary extends Component<IProps, IState> {
   public static defaultProps = {
     message: '请求出错，请刷新页面重试',
   }
 
-  public constructor(props) {
+  public constructor(props: IProps) {
     super(props)
     this.state = { hasError: false, error: null }
   }
 
-  public static getDerivedStateFromError(_: Error): State {
+  public static getDerivedStateFromError(_: Error): IState {
     return { hasError: true }
   }
 
-  public componentDidCatch(error) {
+  public componentDidCatch(error: Error) {
     // Catch errors in any components below and re-render with error message
     this.setState({
       error,
