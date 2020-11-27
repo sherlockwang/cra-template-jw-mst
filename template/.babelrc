@@ -1,12 +1,4 @@
 {
-  "presets": [
-    [
-      "babel-preset-react-app",
-      {
-        "runtime": "automatic"
-      }
-    ]
-  ],
   "plugins": [
     [
       "@babel/plugin-proposal-decorators",
