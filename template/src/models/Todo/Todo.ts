@@ -58,6 +58,9 @@ export const Todo = types
         alert('already existed')
       }
     },
+    setFilter(filter: 'all' | 'active' | 'completed') {
+      self.filter = filter
+    },
     toggleAll() {
       self.allStatus = !self.allStatus
       self.todoList.forEach(item => {

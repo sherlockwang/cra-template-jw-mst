@@ -7,7 +7,7 @@ const TodoFilter: React.FC<{}> = () => {
 
   const onFilter = useCallback((filter) => {
     return () => {
-      model.filter = filter
+      model.setFilter(filter)
     }
   }, [])
 

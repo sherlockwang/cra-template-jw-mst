@@ -1,10 +1,5 @@
-import {
-  types,
-  Instance,
-  unprotect,
-  onSnapshot,
-  SnapshotIn,
-} from 'mobx-state-tree'
+import { types, Instance, unprotect, onSnapshot, SnapshotIn } from 'mobx-state-tree'
+import { connectReduxDevtools } from 'mst-middlewares'
 import { Todo } from './Todo'
 import { TodoModel } from './Todo/Todo'
 
@@ -33,5 +28,9 @@ unprotect(store)
 onSnapshot(store, snapshot => {
   localStorage.setItem('storeSnapshot', JSON.stringify(snapshot))
 })
+// connect to redux dev tools if installed
+if (process.env.NODE_ENV === 'development' && window.__REDUX_DEVTOOLS_EXTENSION__) {
+  connectReduxDevtools(require("remotedev"), store)
+}
 
 export { store }
