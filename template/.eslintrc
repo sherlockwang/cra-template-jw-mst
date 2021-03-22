@@ -1,11 +1,14 @@
 {
+  "parser": "@typescript-eslint/parser",
   "extends": [
     "airbnb",
     "plugin:prettier/recommended",
     "prettier/react",
-    "plugin:jsx-control-statements/recommended"
+    "plugin:jsx-control-statements/recommended",
+    "plugin:@typescript-eslint/recommended"
   ],
   "plugins": [
+    "@typescript-eslint",
     "prettier",
     "jsx-control-statements"
   ],
@@ -13,34 +16,6 @@
     "browser": true,
     "es6": true,
     "jest": true
-  },
-  "settings": {
-    "import/resolver": {
-      "node": {
-        "extensions": [
-          ".js",
-          ".jsx",
-          ".ts",
-          ".tsx"
-        ],
-        "paths": [
-          "node_modules",
-          "src"
-        ]
-      },
-      "webpack": {
-        "config": {
-          "resolve": {
-            "extensions": [
-              ".js",
-              ".jsx",
-              ".ts",
-              ".tsx"
-            ]
-          }
-        }
-      }
-    }
   },
   "rules": {
     "react/jsx-uses-react": "off",
