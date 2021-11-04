@@ -1,11 +1,13 @@
 {
   "name": "cra-template-jw-mst",
-  "version": "2.2.0",
+  "version": "3.0.0",
   "keywords": [
     "react",
     "create-react-app",
     "template",
-    "typescript"
+    "typescript",
+    "mobx",
+    "mobx-state-tree"
   ],
   "main": "template.json",
   "description": "JWang customized template with Mobx State Tree for Create React App.",
@@ -16,7 +18,7 @@
   },
   "license": "MIT",
   "engines": {
-    "node": ">=10"
+    "node": ">=12"
   },
   "files": [
     "template",

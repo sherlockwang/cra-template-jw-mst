@@ -1,12 +1,16 @@
 import { useState, useCallback } from 'react'
+import styled from 'styled-components'
 import { observer } from 'mobx-react'
 import { clone, getSnapshot, applySnapshot } from 'mobx-state-tree'
 import { TodoItemModel } from '~/models/Todo/TodoItem'
-import './index.scss'
 
 type Props = {
   todoItem: TodoItemModel
 }
+
+const TodoEditGroup = styled.div`
+  display: flex;
+`
 
 const TodoItem: React.FC<Props> = ({ todoItem }: Props) => {
   const [edit, setedit] = useState(false)
@@ -68,7 +72,7 @@ const TodoItem: React.FC<Props> = ({ todoItem }: Props) => {
         <button className="destroy" onClick={todoItem.remove} />
       </div>
       <If condition={edit}>
-        <div className="todo-edit-group">
+        <TodoEditGroup>
           <input
             className="edit"
             value={todoItemCopy.time}
@@ -84,7 +88,7 @@ const TodoItem: React.FC<Props> = ({ todoItem }: Props) => {
             onChange={onNameChange}
             onKeyDown={onKeyDown}
           />
-        </div>
+        </TodoEditGroup>
       </If>
     </li>
   )

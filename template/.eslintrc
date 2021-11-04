@@ -18,6 +18,8 @@
     "jest": true
   },
   "rules": {
+    "import/no-unresolved": "off",
+    "import/extensions": "off",
     "react/jsx-uses-react": "off",
     "react/react-in-jsx-scope": "off",
     "jsx-a11y/href-no-hash": "off",
@@ -68,6 +70,7 @@
       }
     ],
     "react/prop-types": 0,
-    "react/jsx-props-no-spreading": 0
+    "react/jsx-props-no-spreading": 0,
+    "react/jsx-no-undef": [2, { "allowGlobals": true }]
   }
 }
