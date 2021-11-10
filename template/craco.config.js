@@ -71,7 +71,7 @@ module.exports = {
     },
   },
   typescript: {
-    enableTypeChecking: true /* (default value)  */,
+    enableTypeChecking: false /* (default value)  */,
   },
   webpack: {
     alias: {
