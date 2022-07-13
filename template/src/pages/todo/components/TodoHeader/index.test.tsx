@@ -1,6 +1,6 @@
-import { shallow } from 'enzyme'
+import { render } from '@testing-library/react'
 import TodoHeader from './index'
 
-it('case: expect TodoHeader render correct', () => {
-  const wrapper = shallow(<TodoHeader />)
+test('case: expect TodoHeader render correct', () => {
+  render(<TodoHeader />)
 })

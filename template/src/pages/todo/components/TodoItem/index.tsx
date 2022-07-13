@@ -71,7 +71,7 @@ const TodoItem: React.FC<Props> = ({ todoItem }: Props) => {
         </label>
         <button className="destroy" onClick={todoItem.remove} />
       </div>
-      <If condition={edit}>
+      {edit && (
         <TodoEditGroup>
           <input
             className="edit"
@@ -89,7 +89,7 @@ const TodoItem: React.FC<Props> = ({ todoItem }: Props) => {
             onKeyDown={onKeyDown}
           />
         </TodoEditGroup>
-      </If>
+      )}
     </li>
   )
 }

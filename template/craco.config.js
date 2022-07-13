@@ -118,7 +118,8 @@ module.exports = {
     },
   },
   devServer: (devServerConfig, { env, paths, proxy, allowedHost }) => {
-    devServerConfig.quiet = false
+    // not available in webpack 5
+    // devServerConfig.quiet = false
 
     return devServerConfig
   },

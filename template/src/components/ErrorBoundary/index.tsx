@@ -1,5 +1,12 @@
 import { Component, ReactNode } from 'react'
+import styled from 'styled-components'
 
+const ErrorWrapper = styled.div`
+  height: 90%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`
 interface IProps {
   children: ReactNode
   message?: string
@@ -12,7 +19,7 @@ interface IState {
 
 class ErrorBoundary extends Component<IProps, IState> {
   public static defaultProps = {
-    message: '请求出错，请刷新页面重试',
+    message: ' Request Error, please refresh to try again.',
   }
 
   public constructor(props: IProps) {
@@ -40,17 +47,15 @@ class ErrorBoundary extends Component<IProps, IState> {
     if (this.state.hasError) {
       // Error path
       return (
-        <div className="error-boundary">
+        <ErrorWrapper className="error-boundary">
           <h2>
             <span>{this.props.message}</span>
           </h2>
-          <button onClick={this.onRefresh}>刷新页面</button>
+          <button onClick={this.onRefresh}>Refresh</button>
           <details>
-            <div className="error-info">
-              {this.state.error && this.state.error.toString()}
-            </div>
+            <div className="error-info">{this.state.error && this.state.error.toString()}</div>
           </details>
-        </div>
+        </ErrorWrapper>
       )
     }
     // Normally, just render children

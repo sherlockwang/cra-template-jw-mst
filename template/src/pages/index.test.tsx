@@ -1,6 +1,6 @@
-import { shallow } from 'enzyme'
+import { render } from '@testing-library/react'
 import MainRouter from './index'
 
-it('case: expect MainRouter render correct', () => {
-  const wrapper = shallow(<MainRouter />)
+test('case: expect MainRouter render correct', () => {
+  render(<MainRouter />)
 })

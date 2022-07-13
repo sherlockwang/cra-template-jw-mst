@@ -3,7 +3,6 @@ import TodoHeader from './components/TodoHeader'
 import TodoList from './components/TodoList'
 import TodoFilter from './components/TodoFilter'
 import './index.css'
-import { withRouter } from 'react-router-dom'
 
 const TodoPage: React.FC<{}> = () => {
   return (
@@ -15,4 +14,4 @@ const TodoPage: React.FC<{}> = () => {
   )
 }
 
-export default withRouter(observer(TodoPage))
+export default observer(TodoPage)

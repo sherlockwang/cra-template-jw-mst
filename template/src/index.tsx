@@ -6,6 +6,7 @@ import { getSnapshot } from 'mobx-state-tree'
 import App from '~/pages'
 import { RootStore, store } from '~/models'
 import { ModelContext } from '~/models/modelContext'
+import reportWebVitals from './reportWebVitals'
 
 let storeCopy = store
 
@@ -41,18 +42,17 @@ const GlobalStyle = createGlobalStyle`
   }
 `
 
+const root = ReactDOM.createRoot(document.getElementById('root'))
 const render = () => {
-  ReactDOM.render(
-    <React.StrictMode>
+  root.render(
+    <>
+      <GlobalStyle />
       <ModelContext.Provider value={storeCopy}>
         <Provider model={storeCopy}>
           <App />
         </Provider>
       </ModelContext.Provider>
-      <GlobalStyle />
-    </React.StrictMode>,
-
-    document.getElementById('root')
+    </>
   )
 }
 
@@ -70,3 +70,8 @@ if (module.hot) {
 }
 
 render()
+
+// If you want to start measuring performance in your app, pass a function
+// to log results (for example: reportWebVitals(console.log))
+// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+// reportWebVitals()

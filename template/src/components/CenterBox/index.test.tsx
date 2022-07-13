@@ -1,6 +1,6 @@
-import { shallow } from 'enzyme'
+import { render } from '@testing-library/react'
 import CenterBox from './index'
 
-it('case: expect CenterBox render correct', () => {
-  const wrapper = shallow(<CenterBox />)
+test('case: expect CenterBox render correct', () => {
+  render(<CenterBox />)
 })

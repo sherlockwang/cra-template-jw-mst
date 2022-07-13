@@ -1,4 +1,4 @@
-import { BrowserRouter, Switch, Route } from 'react-router-dom'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { observer } from 'mobx-react'
 import TodoPage from './todo'
 import ErrorBoundary from '~/components/ErrorBoundary'
@@ -8,9 +8,9 @@ const MainRouter: React.FC<{}> = () => {
     <BrowserRouter>
       <ErrorBoundary>
         <div className="app">
-          <Switch>
-            <Route path="/" exact component={TodoPage} />
-          </Switch>
+          <Routes>
+            <Route path="/" element={<TodoPage />} />
+          </Routes>
         </div>
       </ErrorBoundary>
     </BrowserRouter>

@@ -1,6 +1,6 @@
-import { shallow } from 'enzyme'
+import { render } from '@testing-library/react'
 import TodoFilter from './index'
 
-it('case: expect TodoFilter render correct', () => {
-  const wrapper = shallow(<TodoFilter />)
+test('case: expect TodoFilter render correct', () => {
+  render(<TodoFilter />)
 })

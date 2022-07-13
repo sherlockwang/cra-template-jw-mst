@@ -1,6 +1,6 @@
-import { shallow } from 'enzyme'
+import { render } from '@testing-library/react'
 import TodoPage from './index'
 
-it('case: expect TodoPage render correct', () => {
-  const wrapper = shallow(<TodoPage />)
+test('case: expect TodoPage render correct', () => {
+  render(<TodoPage />)
 })
