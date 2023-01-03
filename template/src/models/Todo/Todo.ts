@@ -1,6 +1,6 @@
 import { types, Instance, destroy, flow } from 'mobx-state-tree'
 import { TodoItem, TodoItemModel } from './TodoItem'
-import { get } from '~/utils/api'
+import { getTodos, postTodos } from '~/services/todo'
 
 export const Todo = types
   .model('Todo')
@@ -42,22 +42,29 @@ export const Todo = types
   }))
   .actions(self => ({
     getTodoList: flow(function* getOrderList(params: object) {
-      const res = yield get('api/childlist.json', params)
+      const res = yield getTodos(params)
 
-      self.todoList = res.data
+      self.todoList = res
     }),
-    addTodo() {
+    addTodo: flow(function* addTodo() {
       if (!self.todoList.find(item => item.name === self.newTodoName)) {
         self.todoList.push({
           name: self.newTodoName,
           time: self.newTodoTime,
           status: false,
         })
-        this.resetNewTodo()
+
+        const res = yield postTodos({
+          name: self.newTodoName,
+          time: self.newTodoTime,
+          status: false,
+        })
+
+        self.resetNewTodo()
       } else {
         alert('already existed')
       }
-    },
+    }),
     setFilter(filter: 'all' | 'active' | 'completed') {
       self.filter = filter
     },

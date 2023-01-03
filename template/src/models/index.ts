@@ -6,7 +6,7 @@ import { TodoModel } from './Todo/Todo'
 const initTodo: SnapshotIn<TodoModel> = {}
 
 // Root Store
-export const RootStore = types.model('RootStore', {
+export const RootStore = types.model('Main', {
   Todo: types.optional(Todo, initTodo),
 })
 
@@ -22,7 +22,7 @@ if (localStorage.getItem('storeSnapshot')) {
 }
 // Create store instance
 let store = RootStore.create(initStore)
-// allow change store value outside action
+// allow change store value outside action, only do this when you well of your developers
 unprotect(store)
 // when change store value, get a snapshot save into local storage
 onSnapshot(store, snapshot => {

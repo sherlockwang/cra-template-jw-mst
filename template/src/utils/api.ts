@@ -33,4 +33,12 @@ const del = (url: string, params: object) =>
     params,
   })
 
-export { get, post, put, del }
+const wait = (time = 300) => {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve(`wait ${time} ms`)
+    }, time);
+  })
+}
+
+export { get, post, put, del, wait }
