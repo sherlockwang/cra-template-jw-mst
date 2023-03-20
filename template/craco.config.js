@@ -1,10 +1,7 @@
 const { when, whenDev, whenProd, whenTest, ESLINT_MODES, POSTCSS_MODES } = require('@craco/craco')
 const path = require('path')
 const ProgressBarPlugin = require('progress-bar-webpack-plugin')
-const SpeedMeasurePlugin = require('speed-measure-webpack-plugin')
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer')
-// eslint-disable-next-line
-const smp = new SpeedMeasurePlugin()
 
 module.exports = {
   reactScriptsVersion: 'react-scripts' /* (default value) */,
@@ -98,10 +95,6 @@ module.exports = {
     },
     configure: (webpackConfig, { env, paths }) => {
       /* Any webpack configuration options: https://webpack.js.org/configuration */
-      if (env === 'production') {
-        smp.wrap(webpackConfig)
-      }
-
       return webpackConfig
     },
   },
