@@ -6,6 +6,18 @@ It installs these dependencies for you, and allow your to customize webpack conf
 
 To use this template, add `--template jw-mst` when creating a new app.
 
+### To make husky work
+
+After initialization run following command
+
+```sh
+npm run prepare
+
+# or
+
+yarn prepare
+```
+
 For example:
 
 ```sh
