@@ -1,6 +1,6 @@
 # cra-template-jw-mst
 
-This is a Create React App Template with React Router, Mobx State Tree, TypeScript, and Enzyme.
+This is a Create React App Template with React Router, Mobx State Tree, TypeScript.
 
 It installs these dependencies for you, and allow your to customize webpack config.
 
