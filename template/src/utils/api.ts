@@ -9,6 +9,8 @@ axios.defaults.validateStatus = function (status) {
   return status >= 200 && status < 500
 }
 
+const defaultController = new AbortController()
+
 axios.interceptors.request.use(
   async config => {
     // add request interceptors
@@ -19,26 +21,36 @@ axios.interceptors.request.use(
   }
 )
 
-const get = (url: string, params: object) =>
+const get = (url: string, params: object, cancelController?: AbortController) =>
   axios.get(url, {
     params,
+    signal: cancelController ? cancelController.signal : defaultController.signal,
   })
 
-const post = (url: string, params: object) => axios.post(url, params)
+const post = (url: string, params: object, cancelController?: AbortController) =>
+  axios.post(url, {
+    params,
+    signal: cancelController ? cancelController.signal : defaultController.signal,
+  })
 
-const put = (url: string, params: object) => axios.put(url, params)
+const put = (url: string, params: object, cancelController?: AbortController) =>
+  axios.put(url, {
+    params,
+    signal: cancelController ? cancelController.signal : defaultController.signal,
+  })
 
-const del = (url: string, params: object) =>
+const del = (url: string, params: object, cancelController?: AbortController) =>
   axios.delete(url, {
     params,
+    signal: cancelController ? cancelController.signal : defaultController.signal,
   })
 
 const wait = (time = 300) => {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
       resolve(`wait ${time} ms`)
-    }, time);
+    }, time)
   })
 }
 
-export { get, post, put, del, wait }
+export { get, post, put, del, wait, defaultController as controller }

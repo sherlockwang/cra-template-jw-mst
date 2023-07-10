@@ -1,4 +1,4 @@
-import { observer } from 'mobx-react'
+import { observer } from 'mobx-react-lite'
 import TodoHeader from './components/TodoHeader'
 import TodoList from './components/TodoList'
 import TodoFilter from './components/TodoFilter'

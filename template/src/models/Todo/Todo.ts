@@ -46,6 +46,12 @@ export const Todo = types
 
       self.todoList = res
     }),
+    setNewTodoName(name) {
+      self.newTodoName = name
+    },
+    setNewTodoTime(time) {
+      self.newTodoTime = time
+    },
     addTodo: flow(function* addTodo() {
       if (!self.todoList.find(item => item.name === self.newTodoName)) {
         self.todoList.push({

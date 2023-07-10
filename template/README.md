@@ -2,6 +2,14 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+It is a Todo MVC demo with React Router, Mobx State Tree, TypeScript, ESLint, Prettier, and etc.
+
+See https://todomvc.com/ for more info.
+
+The key of this project is how you separate business logic and UI using Mobx State Tree, which is necessary for complex Front-end app.
+
+If you want to customize webpack config, make changes in `craco.config.js`
+
 ## Available Scripts
 
 In the project directory, you can run:

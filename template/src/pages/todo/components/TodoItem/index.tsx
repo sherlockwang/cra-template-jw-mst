@@ -1,6 +1,6 @@
 import { useState, useCallback } from 'react'
 import styled from 'styled-components'
-import { observer } from 'mobx-react'
+import { observer } from 'mobx-react-lite'
 import { clone, getSnapshot, applySnapshot } from 'mobx-state-tree'
 import { TodoItemModel } from '~/models/Todo/TodoItem'
 

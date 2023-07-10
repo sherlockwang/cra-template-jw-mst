@@ -1,11 +1,13 @@
 import { useCallback } from 'react'
-import { observer } from 'mobx-react'
-import { useStore } from '~/models/modelContext'
+import { observer } from 'mobx-react-lite'
+import { useStore } from '~/models'
+
+type Ifilter = 'all' | 'active' | 'completed'
 
 const TodoFilter: React.FC<{}> = () => {
   const { Todo: model } = useStore()
 
-  const onFilter = useCallback((filter) => {
+  const onFilter = useCallback((filter: Ifilter) => {
     return () => {
       model.setFilter(filter)
     }

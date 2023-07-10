@@ -1,11 +1,9 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { createGlobalStyle } from 'styled-components'
-import { Provider } from 'mobx-react'
 import { getSnapshot } from 'mobx-state-tree'
 import App from '~/pages'
-import { RootStore, store } from '~/models'
-import { ModelContext } from '~/models/modelContext'
+import { RootStore, store, ModelContext } from '~/models'
 import reportWebVitals from './reportWebVitals'
 
 let storeCopy = store
@@ -48,9 +46,7 @@ const render = () => {
     <>
       <GlobalStyle />
       <ModelContext.Provider value={storeCopy}>
-        <Provider model={storeCopy}>
-          <App />
-        </Provider>
+        <App />
       </ModelContext.Provider>
     </>
   )
@@ -61,12 +57,14 @@ if (module.hot) {
     render()
   })
 
-  // remain model data when hot reload
-  module.hot.accept('./models', () => {
-    const snapshot = getSnapshot(storeCopy)
-    storeCopy = RootStore.create(snapshot)
-    render()
-  })
+  /**
+   * * Comment out by default to avoid development time bugs, remain model data when hot reload
+   */
+  // module.hot.accept('./models', () => {
+  //   const snapshot = getSnapshot(storeCopy)
+  //   storeCopy = RootStore.create(snapshot)
+  //   render()
+  // })
 }
 
 render()

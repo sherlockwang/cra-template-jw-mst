@@ -1,5 +1,9 @@
 # cra-template-jw-mst
 
+> From 6.0.0, I removed default support for Class Component. If you need it, replace mobx-react-lite with mobx-react
+>
+> Meanwhile, the template using 3rd party Error boundary, and the structure also changes a little bit.
+
 This is a Create React App Template with React Router, Mobx State Tree, TypeScript.
 
 It installs these dependencies for you, and allow your to customize webpack config.

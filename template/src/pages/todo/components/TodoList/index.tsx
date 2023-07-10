@@ -1,13 +1,13 @@
 import { useCallback } from 'react'
-import { observer } from 'mobx-react'
-import { useStore } from '~/models/modelContext'
+import { observer } from 'mobx-react-lite'
+import { useStore } from '~/models'
 import TodoItem from '../TodoItem'
 import { TodoItemModel } from '~/models/Todo/TodoItem'
 
 const TodoList: React.FC<{}> = () => {
   const { Todo: model } = useStore()
 
-  const toggleAll = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
+  const toggleAll = useCallback(() => {
     model.toggleAll()
   }, [])
 

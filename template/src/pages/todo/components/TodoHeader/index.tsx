@@ -1,6 +1,6 @@
 import { useCallback } from 'react'
-import { observer } from 'mobx-react'
-import { useStore } from '~/models/modelContext'
+import { observer } from 'mobx-react-lite'
+import { useStore } from '~/models'
 
 const TodoHeader: React.FC<{}> = () => {
   const { Todo: model } = useStore()
@@ -14,11 +14,11 @@ const TodoHeader: React.FC<{}> = () => {
   }, [])
 
   const onNameChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
-    model.newTodoName = e.target.value
+    model.setNewTodoName(e.target.value)
   }, [])
 
   const onTimeChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
-    model.newTodoTime = +e.target.value
+    model.setNewTodoTime(+e.target.value)
   }, [])
 
   return (

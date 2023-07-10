@@ -54,7 +54,8 @@
           "i",
           "j",
           "a",
-          "b"
+          "b",
+          "e"
         ]
       }
     ],
@@ -65,6 +66,8 @@
       {
         "allowGlobals": true
       }
-    ]
+    ],
+    "react/function-component-definition": 0,
+    "import/no-import-module-exports": 0
   }
 }
